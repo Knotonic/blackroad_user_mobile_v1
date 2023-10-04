@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "872185562324",
+    "project_id": "blackroaddev",
+    "storage_bucket": "blackroaddev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872185562324:android:3c21abfb93be49dddca741",
+        "android_client_info": {
+          "package_name": "com.blackroad.user"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNkkat1Fzgqfi-ZWwA1kIOcsB_y5LIBak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
