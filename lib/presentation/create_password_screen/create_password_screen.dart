@@ -1,5 +1,4 @@
-import 'bloc/sign_up_three_bloc.dart';
-import 'models/sign_up_three_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:blackroad_v1/core/app_export.dart';
 import 'package:blackroad_v1/core/utils/validation_functions.dart';
@@ -9,8 +8,11 @@ import 'package:blackroad_v1/widgets/app_bar/custom_app_bar.dart';
 import 'package:blackroad_v1/widgets/custom_elevated_button.dart';
 import 'package:blackroad_v1/widgets/custom_text_form_field.dart';
 
-class SignUpThreeScreen extends StatelessWidget {
-  SignUpThreeScreen({Key? key})
+import 'bloc/create_password_bloc.dart';
+import 'models/create_password_model.dart';
+
+class CreatePasswordScreen extends StatelessWidget {
+  CreatePasswordScreen({Key? key})
       : super(
           key: key,
         );
@@ -18,12 +20,12 @@ class SignUpThreeScreen extends StatelessWidget {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   static Widget builder(BuildContext context) {
-    return BlocProvider<SignUpThreeBloc>(
-      create: (context) => SignUpThreeBloc(SignUpThreeState(
-        signUpThreeModelObj: SignUpThreeModel(),
+    return BlocProvider<CreatePasswordBloc>(
+      create: (context) => CreatePasswordBloc(CreatePasswordState(
+        CreatePasswordModelObj: CreatePasswordModel(),
       ))
-        ..add(SignUpThreeInitialEvent()),
-      child: SignUpThreeScreen(),
+        ..add(CreatePasswordInitialEvent()),
+      child: CreatePasswordScreen(),
     );
   }
 
@@ -134,7 +136,7 @@ class SignUpThreeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            BlocSelector<SignUpThreeBloc, SignUpThreeState,
+                            BlocSelector<CreatePasswordBloc, CreatePasswordState,
                                 TextEditingController?>(
                               selector: (state) => state.passwordController,
                               builder: (context, passwordController) {
@@ -192,7 +194,7 @@ class SignUpThreeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            BlocSelector<SignUpThreeBloc, SignUpThreeState,
+                            BlocSelector<CreatePasswordBloc, CreatePasswordState,
                                 TextEditingController?>(
                               selector: (state) =>
                                   state.confirmpasswordController,

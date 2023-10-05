@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:isolate';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();
 Future<void> mainCommon() async {
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]).then((value) {

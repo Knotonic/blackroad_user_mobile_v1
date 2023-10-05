@@ -1,4 +1,4 @@
-const String baseUrl = '';
+const String baseUrl = 'http://localhost:3000';
 
 //User/Auth
 

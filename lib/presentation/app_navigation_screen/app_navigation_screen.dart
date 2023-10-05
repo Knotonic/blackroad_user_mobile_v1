@@ -2679,9 +2679,9 @@ class AppNavigationScreen extends StatelessWidget {
   /// When the action is triggered, this function uses the `NavigatorService`
   /// to push the named route for the signUpTwoScreen.
   onTapSignUpTwo(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.signUpTwoScreen,
-    );
+    // NavigatorService.pushNamed(
+    //   AppRoutes.signUpTwoScreen,
+    // );
   }
 
   /// Navigates to the signUpScreen when the action is triggered.
@@ -2690,9 +2690,9 @@ class AppNavigationScreen extends StatelessWidget {
   /// When the action is triggered, this function uses the `NavigatorService`
   /// to push the named route for the signUpScreen.
   onTapSignUp(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.signUpScreen,
-    );
+    // NavigatorService.pushNamed(
+    //   AppRoutes.signUpScreen,
+    // );
   }
 
   /// Navigates to the signUpThreeScreen when the action is triggered.
@@ -2701,9 +2701,9 @@ class AppNavigationScreen extends StatelessWidget {
   /// When the action is triggered, this function uses the `NavigatorService`
   /// to push the named route for the signUpThreeScreen.
   onTapSignUpThree(BuildContext context) {
-    NavigatorService.pushNamed(
-      AppRoutes.signUpThreeScreen,
-    );
+    // NavigatorService.pushNamed(
+    //   AppRoutes.signUpThreeScreen,
+    // );
   }
 
   /// Navigates to the homeOneScreen when the action is triggered.
@@ -2845,9 +2845,7 @@ class AppNavigationScreen extends StatelessWidget {
   /// The [BuildContext] parameter is used to build the navigation stack.
   /// When the action is triggered, this function uses the `NavigatorService`
   /// to push the named route for the signUpOneScreen.
-  onTapSignUpOne(BuildContext context) {
-   
-  }
+  onTapSignUpOne(BuildContext context) {}
 
   /// Navigates to the tripDetailsThreeScreen when the action is triggered.
   ///

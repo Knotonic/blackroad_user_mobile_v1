@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:blackroad_v1/presentation/map_screen/map_screen.dart';
 import 'package:blackroad_v1/presentation/login_screen/login_screen.dart';
-import 'package:blackroad_v1/presentation/sign_up_two_screen/sign_up_two_screen.dart';
-import 'package:blackroad_v1/presentation/sign_up_three_screen/sign_up_three_screen.dart';
+
 import 'package:blackroad_v1/presentation/home_one_screen/home_one_screen.dart';
 import 'package:blackroad_v1/presentation/trip_details_one_screen/trip_details_one_screen.dart';
 import 'package:blackroad_v1/presentation/trip_details_two_screen/trip_details_two_screen.dart';
@@ -43,19 +42,21 @@ import 'package:blackroad_v1/presentation/model_sheet_screen/model_sheet_screen.
 import 'package:blackroad_v1/presentation/member_one_screen/member_one_screen.dart';
 import 'package:blackroad_v1/presentation/app_navigation_screen/app_navigation_screen.dart';
 
+import '../presentation/create_account/create_account_screen.dart';
+import '../presentation/create_password_screen/create_password_screen.dart';
 import '../presentation/otp_screen/otp_screen.dart';
-import '../presentation/sign_up/sign_up_screen.dart';
+import '../presentation/sign_up_screen/sign_up_screen.dart';
 
 class AppRoutes {
   static const String mapScreen = '/map_screen';
 
   static const String loginScreen = '/login_screen';
 
-  static const String signUpTwoScreen = '/sign_up_two_screen';
+  static const String signUpScreen = '/sign_up_screen';
 
   static const String otpScreen = '/otp_screen';
 
-  static const String signUpThreeScreen = '/sign_up_three_screen';
+  static const String createPasswordScreen = '/sign_up_three_screen';
 
   static const String homeOneScreen = '/home_one_screen';
 
@@ -79,7 +80,7 @@ class AppRoutes {
 
   static const String profilePageFourScreen = '/profile_page_four_screen';
 
-  static const String signUpScreen = '/sign_up_screen';
+  static const String createAccountScreen = '/create_account_screen';
 
   static const String tripDetailsThreeScreen = '/trip_details_three_screen';
 
@@ -143,9 +144,9 @@ class AppRoutes {
   static Map<String, WidgetBuilder> get routes => {
         mapScreen: MapScreen.builder,
         loginScreen: LoginScreen.builder,
-        signUpTwoScreen: SignUpTwoScreen.builder,
+        signUpScreen: SignUpScreen.builder,
         otpScreen: OtpScreen.builder,
-        signUpThreeScreen: SignUpThreeScreen.builder,
+        createPasswordScreen: CreatePasswordScreen.builder,
         homeOneScreen: HomeOneScreen.builder,
         tripDetailsOneScreen: TripDetailsOneScreen.builder,
         tripDetailsTwoScreen: TripDetailsTwoScreen.builder,
@@ -157,7 +158,7 @@ class AppRoutes {
         profilePageOneScreen: ProfilePageOneScreen.builder,
         profilePageTwoScreen: ProfilePageTwoScreen.builder,
         profilePageFourScreen: ProfilePageFourScreen.builder,
-        signUpScreen: SignUpScreen.builder,
+        createAccountScreen: CreateAccountScreen.builder,
         tripDetailsThreeScreen: TripDetailsThreeScreen.builder,
         routeOneScreen: RouteOneScreen.builder,
         routeScreen: RouteScreen.builder,

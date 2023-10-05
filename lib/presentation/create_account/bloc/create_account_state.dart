@@ -1,10 +1,10 @@
 // ignore_for_file: must_be_immutable
 
-part of 'sign_up_bloc.dart';
+part of 'create_account_bloc.dart';
 
-/// Represents the state of SignUp in the application.
-class SignUpState extends Equatable {
-  SignUpState({
+/// Represents the state of CreateAccount in the application.
+class CreateAccountState extends Equatable {
+  CreateAccountState({
     this.username,
     this.gender,
     this.dob,
@@ -26,13 +26,13 @@ class SignUpState extends Equatable {
         dob,
         mobileNumber,
       ];
-  SignUpState copyWith({
+  CreateAccountState copyWith({
     String? username,
     String? gender,
     DateTime? dob,
     String? mobileNumber,
   }) {
-    return SignUpState(
+    return CreateAccountState(
       username: username ?? this.username,
       gender: gender ?? this.gender,
       dob: dob ?? this.dob,

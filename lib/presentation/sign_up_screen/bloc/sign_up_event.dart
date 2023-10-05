@@ -15,30 +15,14 @@ class SignUpInitialEvent extends SignUpEvent {
   List<Object?> get props => [];
 }
 
-class ChangeUserNameEvent extends SignUpEvent {
+class SignUpChangeMobileNumberEvent extends SignUpEvent {
   String data;
-  ChangeUserNameEvent(this.data);
+  SignUpChangeMobileNumberEvent(this.data);
   @override
   List<Object?> get props => [];
 }
 
-class ChangeGenderEvent extends SignUpEvent {
-  String data;
-  ChangeGenderEvent(this.data);
-  @override
-  List<Object?> get props => [];
-}
-
-class ChangeDOBEvent extends SignUpEvent {
-  DateTime data;
-  ChangeDOBEvent(this.data);
-  @override
-  List<Object?> get props => [];
-}
-
-class ChangeMobileNumberEvent extends SignUpEvent {
-  String data;
-  ChangeMobileNumberEvent(this.data);
+class SignUpSubmitEvent extends SignUpEvent {
   @override
   List<Object?> get props => [];
 }

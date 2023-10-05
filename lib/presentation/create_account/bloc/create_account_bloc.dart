@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import '/core/app_export.dart';
-part 'sign_up_event.dart';
-part 'sign_up_state.dart';
+part 'create_account_event.dart';
+part 'create_account_state.dart';
 
-/// A bloc that manages the state of a SignUp according to the event that is dispatched to it.
-class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
-  SignUpBloc(SignUpState initialState) : super(initialState) {
-    on<SignUpInitialEvent>(_onInitialize);
+/// A bloc that manages the state of a CreateAccount according to the event that is dispatched to it.
+class CreateAccountBloc extends Bloc<CreateAccountEvent, CreateAccountState> {
+  CreateAccountBloc(CreateAccountState initialState) : super(initialState) {
+    on<CreateAccountInitialEvent>(_onInitialize);
     on<ChangeUserNameEvent>(_changeUserName);
     on<ChangeGenderEvent>(_changeGender);
     on<ChangeDOBEvent>(_changeDOB);
@@ -16,7 +16,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
   _changeUserName(
     ChangeUserNameEvent event,
-    Emitter<SignUpState> emit,
+    Emitter<CreateAccountState> emit,
   ) async {
     emit(state.copyWith(
       username: event.data,
@@ -25,28 +25,28 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
   _changeGender(
     ChangeGenderEvent event,
-    Emitter<SignUpState> emit,
+    Emitter<CreateAccountState> emit,
   ) async {
     emit(state.copyWith(gender: event.data));
   }
 
   _changeDOB(
     ChangeDOBEvent event,
-    Emitter<SignUpState> emit,
+    Emitter<CreateAccountState> emit,
   ) async {
     emit(state.copyWith(dob: event.data));
   }
 
   _changeMobileNumber(
     ChangeMobileNumberEvent event,
-    Emitter<SignUpState> emit,
+    Emitter<CreateAccountState> emit,
   ) async {
     emit(state.copyWith(mobileNumber: event.data));
   }
 
   _onInitialize(
-    SignUpInitialEvent event,
-    Emitter<SignUpState> emit,
+    CreateAccountInitialEvent event,
+    Emitter<CreateAccountState> emit,
   ) async {
     emit(state.copyWith(
       username: '',

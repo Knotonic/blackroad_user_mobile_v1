@@ -39,9 +39,7 @@ class LoginScreen extends StatelessWidget {
               height: getVerticalSize(63),
               leadingWidth: 64,
               leading: AppbarIconbutton(
-                  onTap: () {
-                    NavigatorService.pushNamed(AppRoutes.signUpScreen);
-                  },
+                  onTap: () {},
                   svgPath: ImageConstant.imgBiarrowright,
                   margin: getMargin(left: 24, top: 8, bottom: 8)),
               title: AppbarSubtitle5(

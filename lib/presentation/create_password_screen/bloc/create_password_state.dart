@@ -1,37 +1,37 @@
 // ignore_for_file: must_be_immutable
 
-part of 'sign_up_three_bloc.dart';
+part of 'create_password_bloc.dart';
 
-/// Represents the state of SignUpThree in the application.
-class SignUpThreeState extends Equatable {
-  SignUpThreeState({
+/// Represents the state of CreatePassword in the application.
+class CreatePasswordState extends Equatable {
+  CreatePasswordState({
     this.passwordController,
     this.confirmpasswordController,
-    this.signUpThreeModelObj,
+    this.CreatePasswordModelObj,
   });
 
   TextEditingController? passwordController;
 
   TextEditingController? confirmpasswordController;
 
-  SignUpThreeModel? signUpThreeModelObj;
+  CreatePasswordModel? CreatePasswordModelObj;
 
   @override
   List<Object?> get props => [
         passwordController,
         confirmpasswordController,
-        signUpThreeModelObj,
+        CreatePasswordModelObj,
       ];
-  SignUpThreeState copyWith({
+  CreatePasswordState copyWith({
     TextEditingController? passwordController,
     TextEditingController? confirmpasswordController,
-    SignUpThreeModel? signUpThreeModelObj,
+    CreatePasswordModel? CreatePasswordModelObj,
   }) {
-    return SignUpThreeState(
+    return CreatePasswordState(
       passwordController: passwordController ?? this.passwordController,
       confirmpasswordController:
           confirmpasswordController ?? this.confirmpasswordController,
-      signUpThreeModelObj: signUpThreeModelObj ?? this.signUpThreeModelObj,
+      CreatePasswordModelObj: CreatePasswordModelObj ?? this.CreatePasswordModelObj,
     );
   }
 }

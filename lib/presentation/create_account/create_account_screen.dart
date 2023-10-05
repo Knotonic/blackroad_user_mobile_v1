@@ -10,10 +10,10 @@ import 'package:blackroad_v1/widgets/custom_elevated_button.dart';
 import 'package:blackroad_v1/widgets/custom_text_form_field.dart';
 
 import '../../widgets/custom_dropdown.dart';
-import 'bloc/sign_up_bloc.dart';
+import 'bloc/create_account_bloc.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({Key? key})
+class CreateAccountScreen extends StatelessWidget {
+  CreateAccountScreen({Key? key})
       : super(
           key: key,
         );
@@ -21,9 +21,9 @@ class SignUpScreen extends StatelessWidget {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   static Widget builder(BuildContext context) {
-    return BlocProvider<SignUpBloc>(
-      create: (context) => SignUpBloc(SignUpState())..add(SignUpInitialEvent()),
-      child: SignUpScreen(),
+    return BlocProvider<CreateAccountBloc>(
+      create: (context) => CreateAccountBloc(CreateAccountState())..add(CreateAccountInitialEvent()),
+      child: CreateAccountScreen(),
     );
   }
 
@@ -97,7 +97,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       child: Builder(builder: (context) {
                         final userName = context
-                            .select((SignUpBloc data) => data.state.username);
+                            .select((CreateAccountBloc data) => data.state.username);
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -115,9 +115,9 @@ class SignUpScreen extends StatelessWidget {
                                             letterSpacing:
                                                 getHorizontalSize(0.01))),
                             CustomTextFormField(
-                              controller: context.read<SignUpBloc>().userName,
+                              controller: context.read<CreateAccountBloc>().userName,
                               focusNode:
-                                  context.read<SignUpBloc>().userNameNode,
+                                  context.read<CreateAccountBloc>().userNameNode,
                               margin: getMargin(
                                 top: 5,
                               ),
@@ -140,7 +140,7 @@ class SignUpScreen extends StatelessWidget {
                               },
                               onChange: (value) {
                                 context
-                                    .read<SignUpBloc>()
+                                    .read<CreateAccountBloc>()
                                     .add(ChangeUserNameEvent(value));
                               },
                               focusedBorderDecoration:
@@ -170,7 +170,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       child: Builder(builder: (context) {
                         final gender = context
-                            .select((SignUpBloc data) => data.state.gender);
+                            .select((CreateAccountBloc data) => data.state.gender);
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -188,8 +188,8 @@ class SignUpScreen extends StatelessWidget {
                                             letterSpacing:
                                                 getHorizontalSize(0.01))),
                             CustomDropDown(
-                              items: context.read<SignUpBloc>().gender,
-                              focusNode: context.read<SignUpBloc>().genderNode,
+                              items: context.read<CreateAccountBloc>().gender,
+                              focusNode: context.read<CreateAccountBloc>().genderNode,
                               margin: getMargin(
                                 top: 5,
                               ),
@@ -213,7 +213,7 @@ class SignUpScreen extends StatelessWidget {
                                 Logger.log("what is the value");
                                 Logger.log(value); // context
                                 context
-                                    .read<SignUpBloc>()
+                                    .read<CreateAccountBloc>()
                                     .add(ChangeGenderEvent(value));
                               },
                               focusedBorderDecoration: (gender ?? '').length ==
@@ -240,7 +240,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       child: Builder(builder: (context) {
                         final dob =
-                            context.select((SignUpBloc data) => data.state.dob);
+                            context.select((CreateAccountBloc data) => data.state.dob);
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -258,8 +258,8 @@ class SignUpScreen extends StatelessWidget {
                                             letterSpacing:
                                                 getHorizontalSize(0.01))),
                             CustomTextFormField(
-                              controller: context.read<SignUpBloc>().dob,
-                              focusNode: context.read<SignUpBloc>().dobNode,
+                              controller: context.read<CreateAccountBloc>().dob,
+                              focusNode: context.read<CreateAccountBloc>().dobNode,
                               readonly: true,
                               suffix: InkWell(
                                   onTap: () async {
@@ -273,10 +273,10 @@ class SignUpScreen extends StatelessWidget {
                                             lastDate: DateTime(2101));
                                     if (picked != null) {
                                       context
-                                          .read<SignUpBloc>()
+                                          .read<CreateAccountBloc>()
                                           .add(ChangeDOBEvent(picked));
 
-                                      context.read<SignUpBloc>().dob.text =
+                                      context.read<CreateAccountBloc>().dob.text =
                                           picked.toString();
                                     }
                                   },
@@ -322,7 +322,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       child: Builder(builder: (context) {
                         final mobileNumber = context.select(
-                            (SignUpBloc data) => data.state.mobileNumber);
+                            (CreateAccountBloc data) => data.state.mobileNumber);
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -341,9 +341,9 @@ class SignUpScreen extends StatelessWidget {
                                                 getHorizontalSize(0.01))),
                             CustomTextFormField(
                               controller:
-                                  context.read<SignUpBloc>().mobileNumber,
+                                  context.read<CreateAccountBloc>().mobileNumber,
                               focusNode:
-                                  context.read<SignUpBloc>().mobileNumberNode,
+                                  context.read<CreateAccountBloc>().mobileNumberNode,
                               margin: getMargin(
                                 top: 5,
                               ),
@@ -366,7 +366,7 @@ class SignUpScreen extends StatelessWidget {
                               },
                               onChange: (value) {
                                 context
-                                    .read<SignUpBloc>()
+                                    .read<CreateAccountBloc>()
                                     .add(ChangeMobileNumberEvent(value));
                               },
                               focusedBorderDecoration:
