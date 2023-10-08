@@ -1,3 +1,4 @@
+import 'package:blackroad_v1/core/app_export.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -11,7 +12,7 @@ class SignUpNetwork with Intercepter {
     try {
       final dio = await client();
       Response response = await dio.post(checkMobileNumber,
-          data: {"dialCode": "+91", "mobileNumber": mobileNumber});
+          data: {"dialCode": dialCode, "mobileNumber": mobileNumber});
       return response;
     } catch (e) {
       throw e;
@@ -19,12 +20,14 @@ class SignUpNetwork with Intercepter {
   }
 
   Future signUpWithMobile(
-      {required String mobileNumber, required String password}) async {
+      {required String mobileNumber,
+      required String password,
+      required String userId}) async {
     try {
       final dio = await client();
       Response response = await dio.post(register, data: {
-        "id": "id",
-        "dialCode": "+91",
+        "id": userId,
+        "dialCode": dialCode,
         "mobileNumber": mobileNumber,
         "password": password
       });
@@ -36,22 +39,32 @@ class SignUpNetwork with Intercepter {
 
   Future signUpGoogle() async {
     try {
+      User? alreadyLoginUser = await auth.currentUser;
+      if (alreadyLoginUser != null) {
+        await auth.signOut();
+      }
       UserCredential user = await SocialAuthNetwork().authGoogle();
       final dio = await client();
       Response response = await dio.post(registerSocial, data: {
         "id": user.user?.uid,
-        "email": "email",
-        "firstname": "firstname",
-        "lastname": "lastname"
+        "email": user.user?.email,
+        "firstname": user.user?.email,
+        "lastname": user.user?.email,
       });
       return response;
     } catch (e) {
+      Logger.log("what is the error i am getting");
+      Logger.log(e.toString());
       throw e;
     }
   }
 
   Future signUpApple() async {
     try {
+       User? alreadyLoginUser = await auth.currentUser;
+      if (alreadyLoginUser != null) {
+        await auth.signOut();
+      }
       UserCredential user = await SocialAuthNetwork().authApple();
       final dio = await client();
       Response response = await dio.post(registerSocial, data: {
@@ -66,28 +79,34 @@ class SignUpNetwork with Intercepter {
     }
   }
 
-  Future sendMobileOtp(String mobileNumber) async {
+  // Future sendMobileOtp(String mobileNumber) async {
+  //   try {
+
+  //     Logger.log("send Otp successFull");
+  //   } catch (e) {
+  //     throw e;
+  //   }
+  // }
+
+  Future<UserCredential> verifyMobileOtp(
+      String verificationId, String smsCode) async {
     try {
-      await auth.verifyPhoneNumber(
-        phoneNumber: '+91${mobileNumber}',
-        verificationCompleted: (PhoneAuthCredential credential) {
-          //this is only for android not for IOS
-        },
-        verificationFailed: (FirebaseAuthException e) {},
-        codeSent: (String verificationId, int? resendToken) {},
-        timeout: const Duration(seconds: 60),
-        codeAutoRetrievalTimeout: (String verificationId) {},
-      );
+      
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+          verificationId: verificationId, smsCode: smsCode);
+      UserCredential result = await auth.signInWithCredential(credential);
+      return result;
     } catch (e) {
       throw e;
     }
   }
 
-  Future verifyMobileOtp(String verificationId, String smsCode) async {
+  Future<UserCredential> autoVerification(
+      PhoneAuthCredential credential) async {
     try {
-      PhoneAuthCredential credential = PhoneAuthProvider.credential(
-          verificationId: verificationId, smsCode: smsCode);
-      await auth.signInWithCredential(credential);
+      UserCredential result = await auth.signInWithCredential(credential);
+
+      return result;
     } catch (e) {
       throw e;
     }

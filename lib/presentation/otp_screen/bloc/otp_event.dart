@@ -26,3 +26,10 @@ class ChangeOTPEvent extends OtpEvent {
         code,
       ];
 }
+
+class SubmitOTPEvent extends OtpEvent {
+  String verificationId;
+  SubmitOTPEvent(this.verificationId);
+  @override
+  List<Object?> get props => [];
+}

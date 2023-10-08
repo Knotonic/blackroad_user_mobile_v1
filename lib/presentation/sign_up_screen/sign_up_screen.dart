@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:blackroad_v1/core/app_export.dart';
 import 'package:blackroad_v1/core/utils/validation_functions.dart';
@@ -223,6 +225,11 @@ class SignUpScreen extends StatelessWidget {
                                                       getHorizontalSize(1))))
                                     ])),
                             CustomOutlinedButton(
+                                onTap: () {
+                                  context
+                                      .read<SignUpBloc>()
+                                      .add(SignUpGoogleEvent());
+                                },
                                 text: "msg_sign_up_with_google".tr,
                                 margin: getMargin(left: 25, top: 15, right: 23),
                                 leftIcon: Container(
@@ -238,22 +245,29 @@ class SignUpScreen extends StatelessWidget {
                                                     getVerticalSize(48)))),
                                 buttonTextStyle: CustomTextStyles
                                     .titleMediumPoppinsBluegray800),
-                            CustomOutlinedButton(
-                                text: "msg_sign_up_with_apple".tr,
-                                margin: getMargin(left: 25, top: 16, right: 23),
-                                leftIcon: Container(
-                                    margin: getMargin(right: 8),
-                                    child: CustomImageView(
-                                        svgPath: ImageConstant.imgFire)),
-                                buttonStyle: CustomButtonStyles
-                                    .outlineBluegray800
-                                    .copyWith(
-                                        fixedSize:
-                                            MaterialStateProperty.all<Size>(
-                                                Size(double.maxFinite,
-                                                    getVerticalSize(48)))),
-                                buttonTextStyle: CustomTextStyles
-                                    .titleMediumPoppinsBluegray800),
+                            if (Platform.isIOS)
+                              CustomOutlinedButton(
+                                  onTap: () {
+                                    context
+                                        .read<SignUpBloc>()
+                                        .add(SignUpAppleEvent());
+                                  },
+                                  text: "msg_sign_up_with_apple".tr,
+                                  margin:
+                                      getMargin(left: 25, top: 16, right: 23),
+                                  leftIcon: Container(
+                                      margin: getMargin(right: 8),
+                                      child: CustomImageView(
+                                          svgPath: ImageConstant.imgFire)),
+                                  buttonStyle: CustomButtonStyles
+                                      .outlineBluegray800
+                                      .copyWith(
+                                          fixedSize:
+                                              MaterialStateProperty.all<Size>(
+                                                  Size(double.maxFinite,
+                                                      getVerticalSize(48)))),
+                                  buttonTextStyle: CustomTextStyles
+                                      .titleMediumPoppinsBluegray800),
                             GestureDetector(
                                 onTap: () {
                                   onTapTxtAlreadyhavean3(context);

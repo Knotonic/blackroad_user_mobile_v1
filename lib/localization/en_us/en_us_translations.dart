@@ -307,5 +307,6 @@ final Map<String, String> enUs = {
   "msg_province_prime_territory":
       "province prime territory for scenic road-tripping\nby",
   "msg_add_this_workout":
-      "Add this workout checklist in trip which\ntracks fittness, progress, activity, and\nbalanced routine "
+      "Add this workout checklist in trip which\ntracks fittness, progress, activity, and\nbalanced routine ",
+  "msg_otp_delivered": "Otp delevered Successfully"
 };

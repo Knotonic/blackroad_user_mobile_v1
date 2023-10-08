@@ -129,7 +129,7 @@ class LoginScreen extends StatelessWidget {
                                             focusNode: context
                                                 .read<LoginBloc>()
                                                 .mobileNumberFocusNode,
-                                            autofocus: true,
+                                            //  autofocus: true,
                                             controller: mobileController,
                                             margin: getMargin(top: 5),
                                             contentPadding: getPadding(
@@ -212,7 +212,7 @@ class LoginScreen extends StatelessWidget {
                                           focusNode: context
                                               .read<LoginBloc>()
                                               .passwordFocusNode,
-                                          autofocus: true,
+                                          //   autofocus: true,
                                           controller: passwordController,
                                           margin: getMargin(top: 5),
                                           contentPadding: getPadding(

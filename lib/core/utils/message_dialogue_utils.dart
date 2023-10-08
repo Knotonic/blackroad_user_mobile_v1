@@ -9,4 +9,9 @@ class MessageDialogUtils {
     globalMessengerKey.currentState!
         .showSnackBar(SnackBar(content: Text(message)));
   }
+
+  static void success(String message) {
+    globalMessengerKey.currentState!
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
 }

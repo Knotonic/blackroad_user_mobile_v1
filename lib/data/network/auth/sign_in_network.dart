@@ -1,6 +1,7 @@
 import 'package:blackroad_v1/core/network/intercepter_network.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../../../core/constants/constants.dart';
 import '../../../core/network/endpoints.dart';
 import 'social_auth_network.dart';
 
@@ -10,7 +11,7 @@ class SignInNetwork with Intercepter {
     try {
       final dio = await client();
       Response response = await dio.post(loginWithMobileNumber, data: {
-        "dialCode": "+91",
+        "dialCode": dialCode,
         "mobileNumber": mobileNumber,
         "password": password
       });
